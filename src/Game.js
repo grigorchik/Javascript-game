@@ -23,6 +23,7 @@ class Game {
     update(deltaTime) {
         if (!this.gameOver) this.gameTime += deltaTime;
         if (this.gameTime > this.timeLimit) this.gameOver = true;
+        
         this.player.update(deltaTime);
         if (this.ammoTimer > this.ammoInterval) {
             if (this.ammo < this.maxAmmo) this.ammo++;
@@ -39,7 +40,7 @@ class Game {
             this.addEnemy();
             this.enemyTimer = 0;
         } else {
-         this.enemyTimer += deltaTime;
+            this.enemyTimer += deltaTime;
         }
         this.enemies.forEach(enemy => {
             enemy.update();
@@ -61,18 +62,14 @@ class Game {
                     // Проверяем, если у врага не осталось жизней
                     if (enemy.lives <= 0) {
                         enemy.markedForDeletion = true; // удаляем врага        
-                        this.score += enemy.score; // увеличиваем количество очков главного игрока       
+                        
+                        if (!this.gameOver) this.score += enemy.score; // увеличиваем количество очков главного игрока       
                         if (this.isWin()) this.gameOver = true;  // проверяем условие победы
                     }
                 }
             })
-            // Если пуля попала в врага
-           
         }
-    
-    );
-
-        
+        );   
     }
 
     draw(context) {
