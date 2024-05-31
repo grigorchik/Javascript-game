@@ -9,7 +9,7 @@ class Projectile {
         this.markedForDeletion = false;
     }
   
-    update() {
+    update() {  
         this.x += this.speed;
         if (this.x > this.game.width * 0.8) this.markedForDeletion = true;
     }

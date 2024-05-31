@@ -28,7 +28,6 @@ class Player {
 
     draw(context) {
         context.fillRect(this.x, this.y, this.width, this.height);
-
         context.fillStyle = 'black';
         this.projectiles.forEach(pr => { pr.draw(context); });
     }
@@ -37,8 +36,7 @@ class Player {
         if (this.game.ammo > 0) {
             this.projectiles.push(new Projectile(this.game, this.x + 80, this.y + 30));
             this.game.ammo--;
-        }else if (e.key === ' ') {
-            this.game.player.shootTop();
         }
     }
+
 }
