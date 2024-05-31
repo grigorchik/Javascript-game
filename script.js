@@ -7,14 +7,18 @@ window.addEventListener('load', function () {
     // animation loop
     const game = new Game(canvas.width, canvas.height);
     
-    function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем игровое поле перед следующей анимацией
-    game.draw(ctx);
-    game.update();
-    requestAnimationFrame(animate);
-}
+    let lastTime = 0;
 
-animate();
+    function animate(currentTime) {   // В currentTime будет записан момент времени следующего вызова функции animate()
+        const deltaTime = currentTime - lastTime; // Разница, в миллисекундах, между итерациями анимационного цикла
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем игровое поле перед следующей анимацией
+        game.draw(ctx);
+        game.update(deltaTime); // Теперь обновление игры будет зависеть от частоты смены кадров
+        lastTime = currentTime; // Переприсваивание временных позиций
+        requestAnimationFrame(animate);
+    }
+
+    animate(0);
 })
 
 
