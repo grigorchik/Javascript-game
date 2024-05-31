@@ -14,8 +14,9 @@ class Projectile {
         if (this.x > this.game.width * 0.8) this.markedForDeletion = true;
     }
   
-    draw(context) {
+    draw(context) { 
         context.fillStyle = 'yellow';
         context.fillRect(this.x, this.y, this.width, this.height);
+        
     }
 }

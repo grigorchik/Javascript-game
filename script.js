@@ -3,12 +3,12 @@ window.addEventListener('load', function () {
     const canvas = this.document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
     canvas.width = 1500;
-    canvas.height = 500;      
-    // animation loop
+    canvas.height = 500;     
+
     const game = new Game(canvas.width, canvas.height);
-    
     let lastTime = 0;
 
+    // animation loop
     function animate(currentTime) {   // В currentTime будет записан момент времени следующего вызова функции animate()
         const deltaTime = currentTime - lastTime; // Разница, в миллисекундах, между итерациями анимационного цикла
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем игровое поле перед следующей анимацией
@@ -20,5 +20,3 @@ window.addEventListener('load', function () {
 
     animate(0);
 })
-
-

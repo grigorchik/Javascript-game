@@ -7,10 +7,9 @@ class Game {
         this.ui = new UI(this);
         this.keys = [];
         this.ammo = 20;
-        this.ammoInterval = 500;
+        this.ammoInterval = 350;
         this.maxAmmo = 50;
         this.ammoTimer = 0;
-       
     }
 
     update(deltaTime) {
@@ -25,7 +24,6 @@ class Game {
 
     draw(context) {
         this.ui.draw(context);
-        this.player.draw(context);
-       
+        this.player.draw(context); 
     }
 }

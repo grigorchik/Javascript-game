@@ -27,9 +27,10 @@ class Player {
     }
 
     draw(context) {
+        context.fillStyle = 'black';
         context.fillRect(this.x, this.y, this.width, this.height);
         this.projectiles.forEach(pr => { pr.draw(context); });
-        context.fillStyle = 'black';
+        
     }
 
     shootTop() {
